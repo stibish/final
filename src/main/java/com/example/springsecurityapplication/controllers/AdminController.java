@@ -298,7 +298,7 @@ public class AdminController {
 		
 		personService.updatePerson(id, person);
 		
-		return "redirect:/admin";
+		return "redirect:/admin/users";
 	}
 	
 	@GetMapping("admin/users/delete/{id}")

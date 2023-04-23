@@ -159,12 +159,12 @@
 												<p th:text="'Цена: ' + ${product.getPrice()}"></p>
 											</div>
 										</div>
-										<!-- Product actions-->
 										<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 											<div class="text-center">
 												<a class="btn btn-outline-dark mt-auto"
-													th:href="@{/product/info/{id}(id=${product.getId()})}">View
-													options</a>
+													th:href="@{/product/info/{id}(id=${product.getId()})}">Подробно</a> <br> <a
+													th:href="@{/cart/add/{id}(id=${product.getId()})}">Добавить
+													товар в корзину</a>
 											</div>
 										</div>
 									</div>
