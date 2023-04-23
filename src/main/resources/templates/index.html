@@ -58,12 +58,12 @@
 						aria-current="page" href="#searchT">Поиск</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="#about">О нас</a></li>
-					
-						
+
+
 				</ul>
 
 
-			
+
 
 
 
@@ -80,11 +80,11 @@
 					</button>
 				</form>
 				<form class="d-flex">
-					
-						<i class="bi bi-telephone">  <a href="tel:+79999999999">+7(999)-999-99-99</a></i>
-					
+
+					<i class="bi bi-telephone"> <a href="tel:+79999999999">+7(999)-999-99-99</a></i>
+
 				</form>
-				
+
 			</div>
 		</div>
 	</nav>
@@ -139,90 +139,94 @@
 		<hr>
 		<br>
 		<div class="container" id="searchT">
-			<div class="row">
-				<div class="col-3">
-					<h5 class="card-title">
-						Поиск по параметрам: <i class="bi bi-search"></i>
-					</h5>
-					<form th:method="POST"
-						th:action="@{/person account/product/search}">
-						<input type="hidden" th:name="${_csrf.parameterName}"
-							th:value="${_csrf.token}">
-						<fieldset>
-							<label for="search">Поиск по наименованию</label> <input
-								type="text" id="search" name="search" th:value="*{value_search}">
-							<br>
-							<hr>
-							<p>Цена, р.</p>
-							<label for="ot">От</label> <input type="text" name="ot" id="ot"
-								th:value="*{value_price_ot}"> <br> <label for="do">До</label>
-							<input type="text" name="do" id="do" th:value="*{value_price_do}">
-							<br>
-							<hr>
-							<div>
-								<input type="radio" id="ascending_price" name="price"
-									value="sorted_by_ascending_price"> <label
-									for="ascending_price">Отсортировать по возрастанию цены</label>
-								<br> <input type="radio" id="descending_price" name="price"
-									value="sorted_by_descending_price"> <label
-									for="descending_price">Отсортировать по убыванию цены</label> <br>
+			<div class="block-heading">
+				<h2 class="text-info text-center">Поиск и сортировака товаров по параметрам</h2>
+				<div class="row">
+					<div class="col-3">
+						<h5 class="card-title">
+							Выбор параметров: <i class="bi bi-search"></i>
+						</h5>
+						<form th:method="POST"
+							th:action="@{/person account/product/search}">
+							<input type="hidden" th:name="${_csrf.parameterName}"
+								th:value="${_csrf.token}">
+							<fieldset>
+								<label for="search">Поиск по наименованию</label> <input
+									type="text" id="search" name="search"
+									th:value="*{value_search}"> <br>
 								<hr>
-								<p>Категория товаров:</p>
-								<input type="radio" id="furniture" name="contract"
-									value="furniture"> <label for="furniture">Мебель</label>
-								<br> <input type="radio" id="appliances" name="contract"
-									value="appliances"> <label for="appliances">Бытовая
-									техника</label> <br> <input type="radio" id="clothes"
-									name="contract" value="clothes"> <label for="clothes">Одежда</label>
-								<br>
+								<p>Цена, р.</p>
+								<label for="ot">От</label> <input type="text" name="ot" id="ot"
+									th:value="*{value_price_ot}"> <br> <label for="do">До</label>
+								<input type="text" name="do" id="do"
+									th:value="*{value_price_do}"> <br>
 								<hr>
-								<input type="submit" value="Найти">
-							</div>
-						</fieldset>
-					</form>
-				</div>
-				<div class="col">
-					<div class="container">
+								<div>
+									<input type="radio" id="ascending_price" name="price"
+										value="sorted_by_ascending_price"> <label
+										for="ascending_price">Отсортировать по возрастанию
+										цены</label> <br> <input type="radio" id="descending_price"
+										name="price" value="sorted_by_descending_price"> <label
+										for="descending_price">Отсортировать по убыванию цены</label>
+									<br>
+									<hr>
+									<p>Категория товаров:</p>
+									<input type="radio" id="furniture" name="contract"
+										value="furniture"> <label for="furniture">Мебель</label>
+									<br> <input type="radio" id="appliances" name="contract"
+										value="appliances"> <label for="appliances">Бытовая
+										техника</label> <br> <input type="radio" id="clothes"
+										name="contract" value="clothes"> <label for="clothes">Одежда</label>
+									<br>
+									<hr>
+									<input type="submit" value="Найти">
+								</div>
+							</fieldset>
+						</form>
+					</div>
+					<div class="col">
+						<div class="container">
 
-						<!-- Section-->
-						<section class="py-5">
-							<div class="container px-4 px-lg-5 mt-5">
-								<div
-									class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-									<div class="col mb-5" th:each="product : ${search_product}">
-										<div class="card h-100">
-											<!-- Product image-->
-											<img class="card-img-top"
-												th:src="'/img/' + ${product.imageList[0].getFileName()}"
-												alt="..." />
-											<!-- Product details-->
-											<div class="card-body p-4">
-												<div class="text-center">
-													<!-- Product name-->
-													<h5 class="fw-bolder" th:text="${product.getTitle()}"></h5>
-													<!-- Product price-->
-													<p th:text="'Цена: ' + ${product.getPrice()}"></p>
+							<!-- Section-->
+							<section class="py-5">
+								<div class="container px-4 px-lg-5 mt-5">
+									<div
+										class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+										<div class="col mb-5" th:each="product : ${search_product}">
+											<div class="card h-100">
+												<!-- Product image-->
+												<img class="card-img-top"
+													th:src="'/img/' + ${product.imageList[0].getFileName()}"
+													alt="..." />
+												<!-- Product details-->
+												<div class="card-body p-4">
+													<div class="text-center">
+														<!-- Product name-->
+														<h5 class="fw-bolder" th:text="${product.getTitle()}"></h5>
+														<!-- Product price-->
+														<p th:text="'Цена: ' + ${product.getPrice()}"></p>
+													</div>
 												</div>
-											</div>
-											<!-- Product actions-->
-											<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-												<div class="text-center">
-													<a class="btn btn-outline-dark mt-auto"
-														th:href="@{/product/info/{id}(id=${product.getId()})}">View
-														options</a>
+												<!-- Product actions-->
+												<div
+													class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+													<div class="text-center">
+														<a class="btn btn-outline-dark mt-auto"
+															th:href="@{/product/info/{id}(id=${product.getId()})}">View
+															options</a>
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</section>
+							</section>
 
+						</div>
 					</div>
+
 				</div>
-
 			</div>
-
 		</div>
 	</section>
 	<hr>
