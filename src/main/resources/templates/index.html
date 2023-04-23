@@ -81,7 +81,7 @@
 				</form>
 				<form class="d-flex">
 
-					<i class="bi bi-telephone"> <a href="tel:+79999999999">+7(999)-999-99-99</a></i>
+					<i class="bi bi-telephone"> <a href="tel:+79999999999" id="tel">+7(999)-999-99-99</a></i>
 
 				</form>
 
@@ -147,7 +147,7 @@
 							Выбор параметров: <i class="bi bi-search"></i>
 						</h5>
 						<form th:method="POST"
-							th:action="@{/person account/product/search}">
+							th:action="@{/product/search}">
 							<input type="hidden" th:name="${_csrf.parameterName}"
 								th:value="${_csrf.token}">
 							<fieldset>

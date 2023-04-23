@@ -177,9 +177,12 @@ public class MainController {
 		model.addAttribute("value_search", search);
 		model.addAttribute("value_price_ot", ot);
 		model.addAttribute("value_price_do", Do);
-		return "/product/product";
+		return "/user/product";
 
 	}
+	
+	
+
 
 	@GetMapping("/cart/add/{id}")
 	public String addProductInCart(@PathVariable("id") int id, Model model) {

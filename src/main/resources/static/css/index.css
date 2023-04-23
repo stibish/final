@@ -18,3 +18,7 @@ filter {
 card-img-top {
 	width:100px;
 }
+
+#tel{
+	text-decoration: none;
+}

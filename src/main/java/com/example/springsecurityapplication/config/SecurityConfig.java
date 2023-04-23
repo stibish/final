@@ -37,7 +37,7 @@ public class SecurityConfig {
                 // authenticated(), который открывает форму аутентификации
 //                .anyRequest().authenticated()
                 .requestMatchers("/authentication", "/", "/registration", "/error", "/resources/**", "/static/**","/assets/**", "/css/**",
-                        "/js/**", "/img/**", "/product", "/product/info/{id}","/product/info/css/**","/product/info/img/**", "/product/search")
+                        "/js/**", "/img/**", "/product", "/product/info/{id}","/product/info/css/**","/product/info/img/**", "/product/search","/search")
                 .permitAll().anyRequest().hasAnyRole("USER", "ADMIN").and() // указываем что дальше настраиватеся
                 // аутентификация и соединяем ее с
                 // настройкой доступа
